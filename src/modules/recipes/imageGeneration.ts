@@ -94,14 +94,14 @@ export async function generateImageForRecipe(recipe: {
   }
 
   // 2. Try OpenAI
-  // try {
-  //   return await generateImageWithOpenAI(prompt);
-  // } catch (error) {
-  //   logger.warn(
-  //     "Falling back to Unsplash for image: %s",
-  //     (error as Error).message
-  //   );
-  // }
+  try {
+    return await generateImageWithOpenAI(prompt);
+  } catch (error) {
+    logger.warn(
+      "Falling back to Unsplash for image: %s",
+      (error as Error).message
+    );
+  }
 
   // 3. Try Unsplash
   try {
