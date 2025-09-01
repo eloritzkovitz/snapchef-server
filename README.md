@@ -37,6 +37,7 @@ The server was deployed to a remote production server, using SSH and HTTPS for s
 
 ## Documentation
 
+- [Installation](docs/installation.md)
 - [Architecture](docs/architecture.md)
 - [API Reference](https://snapchef-app.vercel.app/api)
 
