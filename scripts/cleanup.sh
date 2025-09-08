@@ -15,10 +15,10 @@ sudo rm -rf /var/log/*.gz /var/log/*.[0-9] /var/log/*.1
 sudo truncate -s 0 /var/log/syslog /var/log/auth.log 2>/dev/null
 
 # Clean /tmp directory
-sudo rm -rf /tmp/*
+sudo find /tmp -mindepth 1 ! -name 'mongodb-*.sock' -delete
 
 # Remove old Snap revisions
 snap list --all | awk '/disabled/{print $1, $3}' | while read snapname revision; do sudo snap remove "$snapname" --revision="$revision"; done
 
 # Truncate PM2 logs
-sudo truncate -s 0 /root/.pm2/*.log /root/.pm2/logs/*.log /home/cs104/.pm2/logs/*.log 2>/dev/null
+sudo truncate -s 0 /root/.pm2/pm2.log /root/.pm2/logs/snapchef-out.log /root/.pm2/logs/snapchef-error.log
